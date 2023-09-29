@@ -13,6 +13,9 @@ import impact5 from './assets/sprites/Impact_Shine_V2_spritesheet.png';
 import impact6 from './assets/sprites/Impact_Shockwave v2_spritesheet.png';
 import particles1 from './assets/sprites/Particles_Basic_V4_spritesheet.png';
 import particles2 from './assets/sprites/Star_Bursts_V4_spritesheet.png';
+
+import glow_wheel_sheet from './assets/atlas/glow_wheel.png';
+import glow_wheel_json from './assets/atlas/glow_wheel.json';
 class MyVFX extends Phaser.Scene
 {
     constructor ()
@@ -37,6 +40,7 @@ class MyVFX extends Phaser.Scene
         this.load.spritesheet('impact6_sheet', impact6, { frameWidth: 512, frameHeight: 512, endframe: 16 });
         this.load.spritesheet('particles1_sheet', particles1, { frameWidth: 512, frameHeight: 512, endframe: 63 });
         this.load.spritesheet('particles2_sheet', particles2, { frameWidth: 512, frameHeight: 512, endframe: 63 });
+        this.load.atlas('glow_wheel_atlas', glow_wheel_sheet, glow_wheel_json);
     }
 
     createAnimation (spritesheet, frames, frameRate, repeat = -1)
@@ -51,6 +55,12 @@ class MyVFX extends Phaser.Scene
       
     create ()
     {
+
+        //glow wheel demo
+        this.anims.create({key: 'glow_wheel_ani', frames: this.anims.generateFrameNames('glow_wheel_atlas', { prefix: 'Frame_', start: 0, end: 92, zeroPad: 3, suffix: '.png' }), frameRate: 30, repeat: -1});
+        const glow_wheel = this.add.sprite(300, 400, 'glow_wheel');
+        glow_wheel.setScale(0.5);
+        glow_wheel.play('glow_wheel_ani');
 
         //burst5 demo
         this.createAnimation('burst5_sheet', 64, 30, -1);
