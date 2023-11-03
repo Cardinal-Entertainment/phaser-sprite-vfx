@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import burst1 from './assets/sprites/blue.png';
-import burst2 from './assets/sprites/greenSimple.png.png';
+import burst2 from './assets/sprites/green-simple.png';
 import burst3 from './assets/sprites/purpleSmall.png.png';
 import burst4 from './assets/sprites/redNormal.png.png';
 import burst5 from './assets/sprites/Fire_Burst_v4_spritesheet.png';
@@ -39,10 +39,10 @@ class MyVFX extends Phaser.Scene
     preload ()
     {
         // this.load.image('burst1', burst1);
-        this.load.spritesheet('blueFlame_spritesheet', burst1, { frameWidth: 100, frameHeight: 100, endframe: 65 });
-        this.load.spritesheet('greenFlame_spritesheet', burst2, { frameWidth: 100, frameHeight: 100, endframe: 30 });
+        this.load.spritesheet('blueFlame_spritesheet', burst1, { frameWidth: 100, frameHeight: 100 });
+        this.load.spritesheet('greenFlame_spritesheet', burst2, { frameWidth: 100, frameHeight: 100 });
         this.load.spritesheet('purpleFlame_spritesheet', burst3, { frameWidth: 100, frameHeight: 100, endframe: 40, padding: 10 });
-        this.load.spritesheet('redFlame_spritesheet', burst4, { frameWidth: 100, frameHeight: 100, endframe: 65 });
+        this.load.spritesheet('redFlame_spritesheet', burst4, { frameWidth: 100, frameHeight: 100 });
 
         this.load.spritesheet('burst5_sheet', burst5, { frameWidth: 512, frameHeight: 512, endframe: 63 });
         this.load.spritesheet('impact1_sheet', impact1, { frameWidth: 512, frameHeight: 512, endframe: 16 });
@@ -217,25 +217,25 @@ class MyVFX extends Phaser.Scene
 
 
         // //Single burst demo
-        // this.createAnimation('blueFlame_spritesheet', 65, 30, -1);
-        // const burst1_sprite = this.add.sprite(200, 100, 'blueFlame_spritesheet')
-        // //burst1_sprite.setScale(2);
-        // burst1_sprite.play('blueFlame_spritesheet_ani');
+        this.createAnimation('blueFlame_spritesheet', 64, 30, -1);
+        const burst1_sprite = this.add.sprite(200, 100, 'blueFlame_spritesheet')
+        //burst1_sprite.setScale(2);
+        burst1_sprite.play('blueFlame_spritesheet_ani');
 
-        this.createAnimation('greenFlame_spritesheet', 30, 30, -1);
+        this.createAnimation('greenFlame_spritesheet', 29, 29, -1);
         const burst2_sprite = this.add.sprite(400, 100, 'greenFlame_spritesheet')
-        //burst2_sprite.setScale(2);
+        //burst2_sprite.setScale(8);
         burst2_sprite.play('greenFlame_spritesheet_ani');
 
-        // this.createAnimation('purpleFlame_spritesheet', 40, 30, -1);
-        // const burst3_sprite = this.add.sprite(500, 140, 'purpleFlame_spritesheet')
-        // //burst3_sprite.setScale(2);
-        // burst3_sprite.play('purpleFlame_spritesheet_ani');
+        this.createAnimation('purpleFlame_spritesheet', 39, 30, -1);
+        const burst3_sprite = this.add.sprite(500, 140, 'purpleFlame_spritesheet')
+        burst3_sprite.setScale(2);
+        burst3_sprite.play('purpleFlame_spritesheet_ani');
 
-        // this.createAnimation('redFlame_spritesheet', 65, 30, -1);
-        // const burst4_sprite = this.add.sprite(600, 140, 'redFlame_spritesheet')
-        // //burst4_sprite.setScale(2);
-        // burst4_sprite.play('redFlame_spritesheet_ani');
+        this.createAnimation('redFlame_spritesheet', 64, 30, -1);
+        const burst4_sprite = this.add.sprite(600, 140, 'redFlame_spritesheet')
+        //burst4_sprite.setScale(2);
+        burst4_sprite.play('redFlame_spritesheet_ani');
 
         //cluster burst demo
         // const blueContainer = this.add.container(100, 400);
